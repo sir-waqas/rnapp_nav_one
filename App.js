@@ -7,9 +7,15 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 //Details Screen View Settings
 class DetailsScreen extends Component {
   render() {
+    const { navigation } = this.props;
+    const itemId = navigation.getParam('itemId', 'NO-ID');
+    const otherMsg = navigation.getParam('otherMsg', 'This is the default Msg');
+
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Details Screen</Text>
+        <Text>Item ID: {JSON.stringify(itemId)}</Text>
+        <Text>Other Message: {JSON.stringify(otherMsg)}</Text>
         <Button
           title="Go to Details... again"
           onPress={() => this.props.navigation.push('Details')}
@@ -30,12 +36,16 @@ class DetailsScreen extends Component {
 //Home Screen View Settings
 class HomeScreen extends Component {
   render() {
+
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Home Screen</Text>
         <Button
           title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
+          onPress={() => this.props.navigation.navigate('Details', {
+            itemIds: 12,
+            otherMsgs: "Sent to Detail"
+          })}
         />
 
       </View>
