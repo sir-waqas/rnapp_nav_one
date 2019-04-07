@@ -38,7 +38,7 @@ class DetailsScreen extends Component {
 }
 //Home Screen View Settings
 class HomeScreen extends Component {
-  staticNavigationOptions = {
+  static navigationOptions = {
     title: 'Home Screen'
   }
   render() {
