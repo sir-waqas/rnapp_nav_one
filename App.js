@@ -6,6 +6,9 @@ import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 //Details Screen View Settings
 class DetailsScreen extends Component {
+  static navigationOptions = {
+    title: 'Details Screen'
+  }
   render() {
     const { navigation } = this.props;
     const itemId = navigation.getParam('itemId', 'NO-ID');
@@ -35,6 +38,9 @@ class DetailsScreen extends Component {
 }
 //Home Screen View Settings
 class HomeScreen extends Component {
+  staticNavigationOptions = {
+    title: 'Home Screen'
+  }
   render() {
 
     return (
@@ -43,8 +49,8 @@ class HomeScreen extends Component {
         <Button
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details', {
-            itemIds: 12,
-            otherMsgs: "Sent to Detail"
+            itemId: 12,
+            otherMsg: "Sent to Detail"
           })}
         />
 
